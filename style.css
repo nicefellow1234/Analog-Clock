@@ -1,0 +1,83 @@
+.parent-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.clock {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 20%;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #00bcd4;
+}
+.clock-wrapper {
+  width: 85%;
+  height: 85%;
+  border: 2px solid black;
+  border-radius: 20%;
+  position: relative;
+  background: #ffcece;
+  font-weight: 600;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clock-wrapper::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: black;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 1;
+}
+.clockNumber {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(calc(30deg * var(--i)));
+}
+.clockNumber div {
+  padding: 5px;
+  transform: rotate(calc(-30deg * var(--i)));
+}
+.clock .needles {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clock .needle {
+  position: absolute;
+  display: flex;
+  height: 65%;
+}
+.clock .needle i {
+  width: 4px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+.clock #hours i {
+  background: black;
+  height: 100px;
+}
+.clock #minutes i {
+  background: black;
+  height: 120px;
+}
+.clock #seconds i {
+  background: red;
+  height: 120px;
+}
