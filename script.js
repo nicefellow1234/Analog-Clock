@@ -23,33 +23,15 @@ function displayTime() {
     sRotation = 0.1; // Reset to the initial value
   }
 
-  // Calculate the elapsed time within the current minute
-  let elapsedMinutes = mm + elapsedSeconds / 60;
-
-  // Calculate the minute's rotation based on elapsed time
-  let mRotation = (6 * elapsedMinutes).toFixed(2); // Round to 2 decimal points
-
-  // Check if the target value is reached
-  if (mRotation >= 360) {
-    mRotation = 0.1; // Reset to the initial value
-  }
-
-  // Calculate the elapsed time within the current hour
-  let elapsedHours = hh + elapsedMinutes / 60;
-
-  // Calculate the hour's rotation based on elapsed time
-  let hRotation = (30 * elapsedHours + mm / 2).toFixed(2); // Round to 2 decimal points
-
-  // Check if the target value is reached
-  if (hRotation >= 360) {
-    hRotation = 0.1; // Reset to the initial value
-  }
+  // Calculate the rotations
+  let hRotation = 30 * hh + mm / 2;
+  let mRotation = 6 * mm;
 
   // Update the needles rotation
   hr.style.transform = `rotate(${hRotation}deg)`;
   min.style.transform = `rotate(${mRotation}deg)`;
   sec.style.transform = `rotate(${sRotation}deg)`;
-  console.log(`Hours: ${hRotation}, Minutes: ${mRotation}, Seconds: ${sRotation}`);
+  console.log(sRotation);
 }
 
 setInterval(displayTime, 50);
